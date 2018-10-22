@@ -89,10 +89,14 @@
 <meta property="og:site_name" content="Micro-Paul">
 <meta property="og:description" content="在使用hexo+GitHub搭建个人博客的时候可以参考这个链接，在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍： 本地环境配置需要软件搭建博客首先需要基本的环境与软件，分别是:   Git Node.js hexo   网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。 参考这个链接 主题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-22T11:55:28.424Z">
+<meta property="og:image" content="http://yoursite.com/uploads/images/0.png">
+<meta property="og:image" content="http://yoursite.com/uploads/images/1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/images/2.png">
+<meta property="og:updated_time" content="2018-10-22T14:11:18.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客搭建（hexo+GitHub）">
 <meta name="twitter:description" content="在使用hexo+GitHub搭建个人博客的时候可以参考这个链接，在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍： 本地环境配置需要软件搭建博客首先需要基本的环境与软件，分别是:   Git Node.js hexo   网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。 参考这个链接 主题">
+<meta name="twitter:image" content="http://yoursite.com/uploads/images/0.png">
 
 
 
@@ -389,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.3k
                 </span>
               
 
@@ -405,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -440,44 +444,67 @@
 <h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h3 id="Next主题配置"><a href="#Next主题配置" class="headerlink" title="Next主题配置"></a>Next主题配置</h3><p>hexo启动以后默认的主题是landscape，我这边选用Next主题，主要是因为这个主题看着美观大方。大部分的配置在参考文件中已经说明了，我这里只说一些需要注意的地方，以及高级的一些配置。</p>
 <h4 id="图片的存放于使用"><a href="#图片的存放于使用" class="headerlink" title="图片的存放于使用"></a>图片的存放于使用</h4><p>图片的使用只在基本上在三个地方使用，a.头像，b.支付图片，c.文章图片。</p>
 <p>因为主题的配置文件_config.yml是在注意文件夹里面的一级目录，与source文件夹属于同一级别。但是，在配置图片的时候，图片的配置路径与source里面的目录是一致的</p>
-<p>将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） 配置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /uploads/avatar.png</span><br></pre></td></tr></table></figure></p>
-<p>或者 放置在 source/images/ 目录下配置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /images/avatar.png</span><br></pre></td></tr></table></figure></p>
-<h4 id="头像设置为圆形，且可以旋转"><a href="#头像设置为圆形，且可以旋转" class="headerlink" title="头像设置为圆形，且可以旋转"></a>头像设置为圆形，且可以旋转</h4><p>设置头像:<br>打开<figure class="highlight plain"><figcaption><span>/uploads/images/avatar.jpg;```其中images文件在```themes/nextsource/uploads```中,将你的头像图片放到images中,一般默认命名为avatar,记得改下后缀就可以了。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">设置旋转效果:</span><br><span class="line">打开```themes\next\source\css\_common\components\sidebar\sidebar-author.styl,</span><br></pre></td></tr></table></figure></p>
-<p>添加以下注释代码:</p>
-<pre><code>.site-author-image {
-  display: block;
-  margin: 0 auto;
-  padding: $site-author-image-padding;
-  max-width: $site-author-image-width;
-  height: $site-author-image-height;
-  border: $site-author-image-border-width solid $site-author-image-border-color;
-
-   /* 头像圆形 */
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  box-shadow: inset 0 -1px 0 #333sf;
-
-  /* 鼠标经过头像旋转时间 */
-  -webkit-transition: -webkit-transform 1.0s ease-out;
-  -moz-transition: -moz-transform 1.0s ease-out;
-  transition: transform 1.0s ease-out;
-
-
-}
-
- img:hover {
-  /* 鼠标经过停止头像旋转 
-  -webkit-animation-play-state:paused;
-  animation-play-state:paused;*/
-
-  /* 鼠标经过头像旋转360度 */
-  -webkit-transform: rotateZ(360deg);
-  -moz-transform: rotateZ(360deg);
-  transform: rotateZ(360deg);
-}
-</code></pre><h4 id="为首页文章添加阴影边框效果"><a href="#为首页文章添加阴影边框效果" class="headerlink" title="为首页文章添加阴影边框效果"></a>为首页文章添加阴影边框效果</h4><p>打开<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	// 主页文章添加阴影效果</span><br><span class="line">	 .post &#123;</span><br><span class="line">	   margin-top: 60px;</span><br><span class="line">	   margin-bottom: 60px;</span><br><span class="line">	   padding: 25px;</span><br><span class="line">	   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">	   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">#### 在每篇文章末尾统一添加“本文结束”标记	</span><br><span class="line">效果如下:</span><br><span class="line"></span><br><span class="line">![文本结束](/uploads/images/0.png)</span><br><span class="line"></span><br><span class="line">实现方法如下:</span><br><span class="line"></span><br><span class="line">1.  在```\themes\next\layout\_macro```下新建 ```passage-end-tag.swig``` 文件,并添加以下代码：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&lt;div&gt;</span><br><span class="line">		    &#123;% if not is_index %&#125;</span><br><span class="line">		        &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;感谢阅读-------------&lt;/div&gt;</span><br><span class="line">		    &#123;% endif %&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">2. 打开```\themes\next\layout\_macro\post.swig```文件，在post-body 之后， post-footer （post-footer之前有两个DIV）之前添加如下代码：</span><br><span class="line"></span><br><span class="line">		&lt;div&gt;</span><br><span class="line">		  &#123;% if not is_index %&#125;</span><br><span class="line">		    &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</span><br><span class="line">		  &#123;% endif %&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">![添加代码的地方图片](/uploads/images/0.png)</span><br><span class="line"></span><br><span class="line">3. 打开主题配置文件_config.yml在末尾添加以下字段：</span><br><span class="line"></span><br><span class="line">		passage_end_tag:</span><br><span class="line">		  enabled: true</span><br><span class="line"></span><br><span class="line">到此,就大功告成了.</span><br><span class="line"></span><br><span class="line">#### 实现文章字数统计和阅读预估时间</span><br><span class="line">1. 在站点根目录下使用GitBash命令安装 hexo-wordcount插件:</span><br><span class="line"></span><br><span class="line">    &gt; $ npm install hexo-wordcount --save</span><br><span class="line"></span><br><span class="line">2. 在全局配置文件_config.yml中激活插件:</span><br><span class="line"></span><br><span class="line">		ymbols_count_time:</span><br><span class="line">		    symbols: true</span><br><span class="line">		    time: true</span><br><span class="line">		    total_symbols: true</span><br><span class="line">		    total_time: true</span><br><span class="line">3. 在主题的配置文件_config.yml中进行如下配置:</span><br><span class="line"></span><br><span class="line">  		ymbols_count_time:  </span><br><span class="line">			time_minutes: true</span><br><span class="line">			separated_meta: true</span><br><span class="line">			item_text_post: true</span><br><span class="line">			item_text_total: true</span><br><span class="line">			awl: 4</span><br><span class="line">			wpm: 275</span><br><span class="line"></span><br><span class="line">到此,我们就实现了文章字数统计和预估时间的显示功能</span><br><span class="line"></span><br><span class="line">参考这个[链接](https://www.jianshu.com/p/380290deb8f0)</span><br><span class="line"></span><br><span class="line">### Deploy to remote sites</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a><br>这是最基本的配置!!!</p>
+<p>将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） 配置为：<br><code>avatar: /uploads/avatar.png</code></p>
+<p>或者 放置在 source/images/ 目录下配置为：<br><code>avatar: /images/avatar.png</code></p>
+<h4 id="头像设置为圆形，且可以旋转"><a href="#头像设置为圆形，且可以旋转" class="headerlink" title="头像设置为圆形，且可以旋转"></a>头像设置为圆形，且可以旋转</h4><p>设置头像:<br>打开<code>themes/next/_config.yml</code>找到<code>avatar: /uploads/images/avatar.jpg;</code>其中images文件在<code>themes/nextsource/uploads</code>中,将你的头像图片放到images中,一般默认命名为avatar,记得改下后缀就可以了。</p>
+<p>设置旋转效果:<br>打开<code>themes\next\source\css\_common\components\sidebar\sidebar-author.styl,</code><br>添加以下注释代码:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转时间 */</span></span><br><span class="line">  <span class="attribute">-webkit-transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="为首页文章添加阴影边框效果"><a href="#为首页文章添加阴影边框效果" class="headerlink" title="为首页文章添加阴影边框效果"></a>为首页文章添加阴影边框效果</h4><p>打开<code>next\source\css\_custom\custom.styl</code>文件,添加以下代码:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h4><p>效果如下:</p>
+<p><img src="/uploads/images/0.png" alt="0.png"></p>
+<p>实现方法如下:</p>
+<ol>
+<li><p>在<code>\themes\next\layout\_macro</code>下新建 <code>passage-end-tag.swig</code> 文件,并添加以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">	&lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span><br><span class="line">		-------------本文结束&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-heart"</span>&gt;&lt;/i&gt;感谢阅读-------------</span><br><span class="line">   	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&#123;% endif %&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>\themes\next\layout\_macro\post.swig</code>文件，在post-body 之后， post-footer （post-footer之前有两个DIV）之前添加如下代码：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">    &#123;% include <span class="string">'passage-end-tag.swig'</span> %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/images/1.png" alt="1.png"></p>
+</li>
+<li><p>打开主题配置文件_config.yml在末尾添加以下字段：</p>
+<pre><code>passage_end_tag:
+  enabled: true
+</code></pre></li>
+</ol>
+<p>到此,就大功告成了.</p>
+<h4 id="实现文章字数统计和阅读预估时间"><a href="#实现文章字数统计和阅读预估时间" class="headerlink" title="实现文章字数统计和阅读预估时间"></a>实现文章字数统计和阅读预估时间</h4><p>效果如下:</p>
+<p><img src="/uploads/images/2.png" alt="2.png"></p>
+<p>实现方法如下:</p>
+<ol>
+<li><p>在站点根目录下使用GitBash命令安装 hexo-wordcount插件:</p>
+<blockquote>
+<p>$ npm install hexo-wordcount –save</p>
+</blockquote>
+</li>
+<li><p>在全局配置文件_config.yml中激活插件:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ymbols_count_time</span>:</span><br><span class="line">    <span class="selector-tag">symbols</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">time</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">total_symbols</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">total_time</span>: <span class="selector-tag">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在主题的配置文件_config.yml中进行如下配置:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	<span class="selector-tag">ymbols_count_time</span>:  </span><br><span class="line"><span class="selector-tag">time_minutes</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">separated_meta</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">item_text_post</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">item_text_total</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">awl</span>: 4</span><br><span class="line"><span class="selector-tag">wpm</span>: 275</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>到此,我们就实现了文章字数统计和预估时间的显示功能</p>
+<p>参考这个<a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">链接</a></p>
+<h3 id="hexo-配置与使用"><a href="#hexo-配置与使用" class="headerlink" title="hexo 配置与使用"></a>hexo 配置与使用</h3><h4 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h4><p>hexo主题配置好以后，就剩下发表文章了。打开命令行，定位到 xxx.github.io 目录下：</p>
+<ol>
+<li>新建普通页面命名为hexo-setting<blockquote>
+<p>$ hexo new hexo-setting</p>
+</blockquote>
+</li>
+</ol>
+<p>这时在_post文件夹下生成一个hexo-setting.md文件</p>
+<ol start="2">
+<li>新建文件夹，文件夹命名为tags<blockquote>
+<p>$ hexo new page “tags”</p>
+</blockquote>
+</li>
+</ol>
+<p>这时在source目录下生成一个tags文件夹，且默认在此文件夹下生成 index.md 文件</p>
+<h4 id="基本配置简析"><a href="#基本配置简析" class="headerlink" title="基本配置简析"></a>基本配置简析</h4><p>hexo 默认有categories、tags等目录，但是在source目录下没有此文件夹，所以用使用categories时，要先使用`hexo new page “categories” 命令建立此文件夹，然后在默认的此文件夹下的index.md文件中添加一下内容：</p>
+<pre><code>title: 所有分类
+date: 2018-10-22 17:16:58
+type: &quot;categories&quot; # 将页面的类型设置为 categories
+comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，设置为 false
+</code></pre><p>同理于tags。如果想在添加其他文件夹或者菜单的话，需要现在配置文件中配置菜单，然后建立文件夹，再去操作。</p>
 
       
     </div>
@@ -535,6 +562,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Micro-Paul
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/10/19/hexo-setting/" title="个人博客搭建（hexo+GitHub）">http://yoursite.com/2018/10/19/hexo-setting/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://compassblog.github.io/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -551,22 +596,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -644,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境配置"><span class="nav-number">1.</span> <span class="nav-text">本地环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要软件"><span class="nav-number">1.1.</span> <span class="nav-text">需要软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题配置"><span class="nav-number">2.1.</span> <span class="nav-text">Next主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片的存放于使用"><span class="nav-number">2.1.1.</span> <span class="nav-text">图片的存放于使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头像设置为圆形，且可以旋转"><span class="nav-number">2.1.2.</span> <span class="nav-text">头像设置为圆形，且可以旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为首页文章添加阴影边框效果"><span class="nav-number">2.1.3.</span> <span class="nav-text">为首页文章添加阴影边框效果</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境配置"><span class="nav-number">1.</span> <span class="nav-text">本地环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要软件"><span class="nav-number">1.1.</span> <span class="nav-text">需要软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题配置"><span class="nav-number">2.1.</span> <span class="nav-text">Next主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片的存放于使用"><span class="nav-number">2.1.1.</span> <span class="nav-text">图片的存放于使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头像设置为圆形，且可以旋转"><span class="nav-number">2.1.2.</span> <span class="nav-text">头像设置为圆形，且可以旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为首页文章添加阴影边框效果"><span class="nav-number">2.1.3.</span> <span class="nav-text">为首页文章添加阴影边框效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">2.1.4.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现文章字数统计和阅读预估时间"><span class="nav-number">2.1.5.</span> <span class="nav-text">实现文章字数统计和阅读预估时间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-配置与使用"><span class="nav-number">2.2.</span> <span class="nav-text">hexo 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发表文章"><span class="nav-number">2.2.1.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本配置简析"><span class="nav-number">2.2.2.</span> <span class="nav-text">基本配置简析</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -771,7 +800,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.1k</span>
+    <span title="Site words total count">1.3k</span>
   
 </div>
 
