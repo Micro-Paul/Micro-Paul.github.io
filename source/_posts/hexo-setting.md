@@ -198,4 +198,4 @@ hexo 默认有categories、tags等目录，但是在source目录下没有此文�
 	comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，设置为 false
 同理于tags,只需要把categories换成tags就可。如果想在添加其他文件夹或者菜单的话，需要现在配置文件中配置菜单，然后建立文件夹，再去操作。
 
-以上就是Hexo + Github 搭建博客的基本操作，有问题欢迎评论哦！
+以上就是Hexo + Github 搭建博客的基本操作和一些有趣的配置，有问题欢迎评论哦！
