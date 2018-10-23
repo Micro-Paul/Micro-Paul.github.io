@@ -864,6 +864,31 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
 
 
   
+    //_config.yml文件若没有添加enable: true可删除该判断
+
+          
+	  <link rel='stylesheet' href="https://yiyeti.cc/usr/themes/veryse/css/gitalk.css">
+      <script src="https://yiyeti.cc/usr/themes/veryse/css/gitalk.min.js"></script>
+      <script type="text/javascript">
+          var gitalk = new Gitalk({
+            clientID:  '', 
+            clientSecret: '',
+            id: window.location.pathname,
+            repo: 'Micro-Paul.github.io', 
+            owner: 'Micro-Paul', 
+            admin: 'Micro-Paul', 
+            distractionFreeMode: 'true',
+          })
+          gitalk.render('gitalk-container')
+      </script>
+    
+
+  
+
+
+
+
+  
 
 
 
