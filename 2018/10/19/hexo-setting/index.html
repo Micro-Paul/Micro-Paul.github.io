@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/uploads/images/0.png">
 <meta property="og:image" content="http://yoursite.com/uploads/images/1.png">
 <meta property="og:image" content="http://yoursite.com/uploads/images/2.png">
-<meta property="og:updated_time" content="2018-10-22T14:11:18.317Z">
+<meta property="og:updated_time" content="2018-10-23T00:54:43.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客搭建（hexo+GitHub）">
 <meta name="twitter:description" content="在使用hexo+GitHub搭建个人博客的时候可以参考这个链接，在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍： 本地环境配置需要软件搭建博客首先需要基本的环境与软件，分别是:   Git Node.js hexo   网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。 参考这个链接 主题">
@@ -484,7 +484,7 @@
 </ol>
 <p>到此,我们就实现了文章字数统计和预估时间的显示功能</p>
 <p>参考这个<a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">链接</a></p>
-<h3 id="hexo-配置与使用"><a href="#hexo-配置与使用" class="headerlink" title="hexo 配置与使用"></a>hexo 配置与使用</h3><h4 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h4><p>hexo主题配置好以后，就剩下发表文章了。打开命令行，定位到 xxx.github.io 目录下：</p>
+<h2 id="hexo-配置与使用"><a href="#hexo-配置与使用" class="headerlink" title="hexo 配置与使用"></a>hexo 配置与使用</h2><h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>hexo主题配置好以后，就剩下发表文章了。打开命令行，定位到 xxx.github.io 目录下：</p>
 <ol>
 <li>新建普通页面命名为hexo-setting<blockquote>
 <p>$ hexo new hexo-setting</p>
@@ -499,7 +499,7 @@
 </li>
 </ol>
 <p>这时在source目录下生成一个tags文件夹，且默认在此文件夹下生成 index.md 文件</p>
-<h4 id="基本配置简析"><a href="#基本配置简析" class="headerlink" title="基本配置简析"></a>基本配置简析</h4><p>hexo 默认有categories、tags等目录，但是在source目录下没有此文件夹，所以用使用categories时，要先使用`hexo new page “categories” 命令建立此文件夹，然后在默认的此文件夹下的index.md文件中添加一下内容：</p>
+<h3 id="基本配置简析"><a href="#基本配置简析" class="headerlink" title="基本配置简析"></a>基本配置简析</h3><p>hexo 默认有categories、tags等目录，但是在source目录下没有此文件夹，所以用使用categories时，要先使用`hexo new page “categories” 命令建立此文件夹，然后在默认的此文件夹下的index.md文件中添加一下内容：</p>
 <pre><code>title: 所有分类
 date: 2018-10-22 17:16:58
 type: &quot;categories&quot; # 将页面的类型设置为 categories
@@ -768,7 +768,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境配置"><span class="nav-number">1.</span> <span class="nav-text">本地环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要软件"><span class="nav-number">1.1.</span> <span class="nav-text">需要软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题配置"><span class="nav-number">2.1.</span> <span class="nav-text">Next主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片的存放于使用"><span class="nav-number">2.1.1.</span> <span class="nav-text">图片的存放于使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头像设置为圆形，且可以旋转"><span class="nav-number">2.1.2.</span> <span class="nav-text">头像设置为圆形，且可以旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为首页文章添加阴影边框效果"><span class="nav-number">2.1.3.</span> <span class="nav-text">为首页文章添加阴影边框效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">2.1.4.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现文章字数统计和阅读预估时间"><span class="nav-number">2.1.5.</span> <span class="nav-text">实现文章字数统计和阅读预估时间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-配置与使用"><span class="nav-number">2.2.</span> <span class="nav-text">hexo 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发表文章"><span class="nav-number">2.2.1.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本配置简析"><span class="nav-number">2.2.2.</span> <span class="nav-text">基本配置简析</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境配置"><span class="nav-number">1.</span> <span class="nav-text">本地环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要软件"><span class="nav-number">1.1.</span> <span class="nav-text">需要软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题配置"><span class="nav-number">2.1.</span> <span class="nav-text">Next主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片的存放于使用"><span class="nav-number">2.1.1.</span> <span class="nav-text">图片的存放于使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头像设置为圆形，且可以旋转"><span class="nav-number">2.1.2.</span> <span class="nav-text">头像设置为圆形，且可以旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为首页文章添加阴影边框效果"><span class="nav-number">2.1.3.</span> <span class="nav-text">为首页文章添加阴影边框效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">2.1.4.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现文章字数统计和阅读预估时间"><span class="nav-number">2.1.5.</span> <span class="nav-text">实现文章字数统计和阅读预估时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-配置与使用"><span class="nav-number">3.</span> <span class="nav-text">hexo 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发表文章"><span class="nav-number">3.1.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本配置简析"><span class="nav-number">3.2.</span> <span class="nav-text">基本配置简析</span></a></li></ol></li></ol></div>
             
 
           </div>
