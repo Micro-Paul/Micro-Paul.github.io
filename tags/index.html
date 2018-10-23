@@ -85,7 +85,7 @@
 <meta name="keywords" content="developer、Android、Java、大数据">
 <meta property="og:type" content="website">
 <meta property="og:title" content="所有标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta property="og:url" content="https://micro-paul.github.io/tags/index.html">
 <meta property="og:site_name" content="Micro-Paul">
 <meta property="og:description" content="在你未做成功每件事之前，没有人在乎你的感受！">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="https://micro-paul.github.io/tags/"/>
 
 
 
@@ -643,27 +643,21 @@
 
 
 
-  
-  
-
-          
-	  <link rel='stylesheet' href="https://yiyeti.cc/usr/themes/veryse/css/gitalk.css">
-      <script src="https://yiyeti.cc/usr/themes/veryse/css/gitalk.min.js"></script>
-      <script type="text/javascript">
-          var gitalk = new Gitalk({
-            clientID:  '', 
-            clientSecret: '',
-            id: window.location.pathname,
-            repo: 'Micro-Paul.github.io', 
-            owner: 'Micro-Paul', 
-            admin: 'Micro-Paul', 
-            distractionFreeMode: 'true',
-          })
-          gitalk.render('gitalk-container')
-      </script>
-    
-
-  
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f1d0aae05bee78ab772a',
+          clientSecret: 'f8aa5b7df81c46401ddfe369c0039cae5d2f55ed',
+          repo: 'Micro-Paul.github.io',
+          owner: '',
+          admin: [''],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
 

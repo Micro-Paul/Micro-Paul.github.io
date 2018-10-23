@@ -85,18 +85,18 @@
 <meta name="keywords" content="实用,个人博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人博客搭建（hexo+GitHub）">
-<meta property="og:url" content="http://yoursite.com/2018/10/19/hexo-setting/index.html">
+<meta property="og:url" content="https://micro-paul.github.io/2018/10/19/hexo-setting/index.html">
 <meta property="og:site_name" content="Micro-Paul">
 <meta property="og:description" content="在使用hexo+GitHub搭建个人博客的时候可以参考这个链接，在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍： 本地环境配置需要软件搭建博客首先需要基本的环境与软件，分别是:   Git Node.js hexo   网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。 参考这个链接 主题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/images/0.png">
-<meta property="og:image" content="http://yoursite.com/uploads/images/1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/images/2.png">
+<meta property="og:image" content="https://micro-paul.github.io/uploads/images/0.png">
+<meta property="og:image" content="https://micro-paul.github.io/uploads/images/1.png">
+<meta property="og:image" content="https://micro-paul.github.io/uploads/images/2.png">
 <meta property="og:updated_time" content="2018-10-23T00:54:43.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客搭建（hexo+GitHub）">
 <meta name="twitter:description" content="在使用hexo+GitHub搭建个人博客的时候可以参考这个链接，在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍： 本地环境配置需要软件搭建博客首先需要基本的环境与软件，分别是:   Git Node.js hexo   网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。 参考这个链接 主题">
-<meta name="twitter:image" content="http://yoursite.com/uploads/images/0.png">
+<meta name="twitter:image" content="https://micro-paul.github.io/uploads/images/0.png">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/19/hexo-setting/"/>
+  <link rel="canonical" href="https://micro-paul.github.io/2018/10/19/hexo-setting/"/>
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/hexo-setting/">
+    <link itemprop="mainEntityOfPage" href="https://micro-paul.github.io/2018/10/19/hexo-setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Micro-Paul">
@@ -570,7 +570,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/10/19/hexo-setting/" title="个人博客搭建（hexo+GitHub）">http://yoursite.com/2018/10/19/hexo-setting/</a>
+    <a href="https://micro-paul.github.io/2018/10/19/hexo-setting/" title="个人博客搭建（hexo+GitHub）">https://micro-paul.github.io/2018/10/19/hexo-setting/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -963,27 +963,21 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
 
 
 
-  
-  
-
-          
-	  <link rel='stylesheet' href="https://yiyeti.cc/usr/themes/veryse/css/gitalk.css">
-      <script src="https://yiyeti.cc/usr/themes/veryse/css/gitalk.min.js"></script>
-      <script type="text/javascript">
-          var gitalk = new Gitalk({
-            clientID:  '', 
-            clientSecret: '',
-            id: window.location.pathname,
-            repo: 'Micro-Paul.github.io', 
-            owner: 'Micro-Paul', 
-            admin: 'Micro-Paul', 
-            distractionFreeMode: 'true',
-          })
-          gitalk.render('gitalk-container')
-      </script>
-    
-
-  
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f1d0aae05bee78ab772a',
+          clientSecret: 'f8aa5b7df81c46401ddfe369c0039cae5d2f55ed',
+          repo: 'Micro-Paul.github.io',
+          owner: '',
+          admin: [''],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
 

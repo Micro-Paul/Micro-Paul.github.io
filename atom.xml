@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://micro-paul.github.io/"/>
   <updated>2018-10-23T00:54:43.250Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://micro-paul.github.io/</id>
   
   <author>
     <name>Micro-Paul</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>个人博客搭建（hexo+GitHub）</title>
-    <link href="http://yoursite.com/2018/10/19/hexo-setting/"/>
-    <id>http://yoursite.com/2018/10/19/hexo-setting/</id>
+    <link href="https://micro-paul.github.io/2018/10/19/hexo-setting/"/>
+    <id>https://micro-paul.github.io/2018/10/19/hexo-setting/</id>
     <published>2018-10-19T13:47:44.000Z</published>
     <updated>2018-10-23T00:54:43.250Z</updated>
     
@@ -34,14 +34,14 @@
     
     </summary>
     
-      <category term="实用技术" scheme="http://yoursite.com/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+      <category term="实用技术" scheme="https://micro-paul.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="个人博客" scheme="http://yoursite.com/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="个人博客" scheme="https://micro-paul.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="实用" scheme="http://yoursite.com/tags/%E5%AE%9E%E7%94%A8/"/>
+      <category term="实用" scheme="https://micro-paul.github.io/tags/%E5%AE%9E%E7%94%A8/"/>
     
-      <category term="个人博客" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="个人博客" scheme="https://micro-paul.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
