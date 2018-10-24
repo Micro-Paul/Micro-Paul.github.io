@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://micro-paul.github.io/"/>
-  <updated>2018-10-24T00:01:12.419Z</updated>
+  <updated>2018-10-24T02:57:10.609Z</updated>
   <id>https://micro-paul.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人Linux操作系统分区</title>
+    <link href="https://micro-paul.github.io/2018/10/24/Linux-setting/"/>
+    <id>https://micro-paul.github.io/2018/10/24/Linux-setting/</id>
+    <published>2018-10-24T02:42:47.000Z</published>
+    <updated>2018-10-24T02:57:10.609Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h2 id="个人Linux操作系统设置，8G的内存，500G的硬盘分区为例"><a href="#个人Linux操作系统设置，8G的内存，500G的硬盘分区为例" class="headerlink" title="个人Linux操作系统设置，8G的内存，500G的硬盘分区为例"></a>个人Linux操作系统设置，8G的内存，500G的硬盘分区为例</h2><h2 id="Linux分区"><a href="#Linux分区" class="headerlink" title="Linux分区"></a>Linux分区</h2><h3 id="Linux分区介绍"><a href="#Linux分区介绍" class="headerlink" title="Linux分区介绍"></a>Linux分区介绍</h3><pre><code>/boot ：用来存放与 Linux 系统启动有关的程序，比如启动引导装载程序等，建议大小为 100MB 。//200M/swap ：实现虚拟内存，建议大小是物理内存的 1~2 倍。//3G/usr ：用来存放 Linux 系统中的应用程序，其相关数据较多，建议大于 3GB 以上。 /var ：用来存放 Linux 系统中经常变化的数据以及日志文件，建议大于 1GB 以上。 /home ：存放普通用户的数据，是普通用户的宿主目录，建议大小为剩下的空间。 / ： Linux 系统的根目录，所有的目录都挂在这个目录下面，建议大小为 5GB 以上。 /tmp ：将临时盘在独立的分区，可避免在文件系统被塞满时影响到系统的稳定性。建议大小为 500MB 以上。 //</code></pre><h3 id="个人电脑分区详情"><a href="#个人电脑分区详情" class="headerlink" title="个人电脑分区详情"></a>个人电脑分区详情</h3><p>常见挂载点的情况说明：一般来说，在linux系统中都有最少两个挂载点，分别是/ (根目录)及 swap（交换分区），其中，/ 是必须的。详细内容见下文：</p><p>安装系统时选择creat custom layout 自定义分区<br>建议挂载的几大目录：</p><pre><code>/home 100G/opt 100G/usr/local 69G/data 80G/var 8G/boot 800M/ 100Gswap 8G</code></pre><hr><p>这就是我的电脑安装Linux（centos）系统时候得详细分区。大家也可以按照自己的实际需求分区，感谢！！！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h2 id=&quot;个人Linux操作系统设置，8G的内存，500G的硬盘分区为例&quot;&gt;&lt;a href=&quot;#个人Linux操作系统设置，8G的内存，500G的硬盘分区为例&quot; class=&quot;headerlink&quot; title=&quot;个人Linux操作系统设置，8G的内存，500G的
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://micro-paul.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Linux" scheme="https://micro-paul.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>个人博客搭建（hexo+GitHub）</title>
