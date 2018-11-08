@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://micro-paul.github.io/"/>
-  <updated>2018-10-25T14:20:05.242Z</updated>
+  <updated>2018-11-08T14:18:00.933Z</updated>
   <id>https://micro-paul.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot微服务学习（1）</title>
+    <link href="https://micro-paul.github.io/2018/11/08/springboot1/"/>
+    <id>https://micro-paul.github.io/2018/11/08/springboot1/</id>
+    <published>2018-11-08T14:12:41.000Z</published>
+    <updated>2018-11-08T14:18:00.933Z</updated>
+    
+    <content type="html"><![CDATA[<p>SpringBoot 作为现在非常火的技术，怎么来说都应该好好学习一下，最近在看《SpringBoot揭秘-快速构建微服务体系》这本书，首先阅读笔记走起一波！！！</p><h3 id="微服务的好处"><a href="#微服务的好处" class="headerlink" title="微服务的好处"></a>微服务的好处</h3><p>1、 独立：表现在可扩展性和隔离性</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;SpringBoot 作为现在非常火的技术，怎么来说都应该好好学习一下，最近在看《SpringBoot揭秘-快速构建微服务体系》这本书，首先阅读笔记走起一波！！！&lt;/p&gt;
+&lt;h3 id=&quot;微服务的好处&quot;&gt;&lt;a href=&quot;#微服务的好处&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+      <category term="语言 - Spring" scheme="https://micro-paul.github.io/categories/%E8%AF%AD%E8%A8%80-Spring/"/>
+    
+    
+      <category term="springboot" scheme="https://micro-paul.github.io/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 学习笔记（基础篇）</title>

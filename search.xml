@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springboot微服务学习（1）]]></title>
+    <url>%2F2018%2F11%2F08%2Fspringboot1%2F</url>
+    <content type="text"><![CDATA[SpringBoot 作为现在非常火的技术，怎么来说都应该好好学习一下，最近在看《SpringBoot揭秘-快速构建微服务体系》这本书，首先阅读笔记走起一波！！！ 微服务的好处1、 独立：表现在可扩展性和隔离性]]></content>
+      <categories>
+        <category>语言 - Spring</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python 学习笔记（基础篇）]]></title>
     <url>%2F2018%2F10%2F25%2Fpython-base%2F</url>
     <content type="text"><![CDATA[想从事大数据方向的工作，看了下视频，好多与Python相关，于是心潮来袭学习Python，首先还是从最基础的东西开始吧，慢慢的希望可以懂向更高级的方向迈进。查了一下资料，Python在机器学习和人工智能方向也应用挺多的，所以就开始愉快的学习吧，坚持就是胜利！！！]]></content>
