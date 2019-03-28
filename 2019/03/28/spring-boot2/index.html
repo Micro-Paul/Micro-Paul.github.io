@@ -100,7 +100,7 @@
 <meta property="og:description" content="使用springboot作为微服务开发框架，可以很好地提高开发的效率和保证微服务开发的质量，springboot中嵌入了tomcat,可直接运行一个jar包来发布微服务，此外还提供了一系列“开箱即用”的插件，可大大提高开发的效率，同时也可以去扩展更多的插件。 微服务技术选型在发布微服务时，可连接zookeeper来注册微服务，实现“服务注册”。实际上zookeeper中有一个名为ZNode的内存树">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://micro-paul.github.io/uploads/images/微服务架构选型.png">
-<meta property="og:updated_time" content="2019-03-28T07:36:35.705Z">
+<meta property="og:updated_time" content="2019-03-28T07:42:54.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-boot2">
 <meta name="twitter:description" content="使用springboot作为微服务开发框架，可以很好地提高开发的效率和保证微服务开发的质量，springboot中嵌入了tomcat,可直接运行一个jar包来发布微服务，此外还提供了一系列“开箱即用”的插件，可大大提高开发的效率，同时也可以去扩展更多的插件。 微服务技术选型在发布微服务时，可连接zookeeper来注册微服务，实现“服务注册”。实际上zookeeper中有一个名为ZNode的内存树">
@@ -442,7 +442,12 @@
 
       
         <p>使用springboot作为微服务开发框架，可以很好地提高开发的效率和保证微服务开发的质量，springboot中嵌入了tomcat,可直接运行一个jar包来发布微服务，此外还提供了一系列“开箱即用”的插件，可大大提高开发的效率，同时也可以去扩展更多的插件。</p>
-<h3 id="微服务技术选型"><a href="#微服务技术选型" class="headerlink" title="微服务技术选型"></a>微服务技术选型</h3><p>在发布微服务时，可连接zookeeper来注册微服务，实现“服务注册”。实际上zookeeper中有一个名为ZNode的内存树状模型，树上的节点用于存放微服务的配置信息。使用Node.js处理浏览器的请求，在Node.js中连接zookeeper，发现服务配置，实现“服务发现”，有大量的Node.js的zookeeper客户端可以完成这个任务。<br>通过Node.js将请求转发到tomcat上，实现“反向代理”，同样也有大量的Node.js库可供我们自由选择。Node.js的“单线程模型”且“非阻塞异步式I/O”特性，通过“事件循环”的方式来支撑大量的高并发请求，此外Node.js原生也提供了集群特性，可确保高可用性。<br>为了实现微服务自动化部署，我们可通过Jenkins搭建自动化部署系统，并使用Docker将服务进行容器化封装。<br>综上所述，微服务架构技术选型如下所示。<br>Springboot：<a href="https://spring.io/projects/spring-boot/" target="_blank" rel="noopener">https://spring.io/projects/spring-boot/</a><br>ZooKeeper: <a href="http://zookeeper.apache.org/" target="_blank" rel="noopener">http://zookeeper.apache.org/</a><br>Node.js: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a><br>Jenkins: <a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a><br>Docker: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a><br>下面通过一张关系图来归纳一下微服务架构技术选型，如下图所示：<br><img src="/uploads/images/微服务架构选型.png" alt="微服务架构选型.png" title="微服务架构选型">  </p>
+<h3 id="微服务技术选型"><a href="#微服务技术选型" class="headerlink" title="微服务技术选型"></a>微服务技术选型</h3><p>在发布微服务时，可连接zookeeper来注册微服务，实现“服务注册”。实际上zookeeper中有一个名为ZNode的内存树状模型，树上的节点用于存放微服务的配置信息。使用Node.js处理浏览器的请求，在Node.js中连接zookeeper，发现服务配置，实现“服务发现”，有大量的Node.js的zookeeper客户端可以完成这个任务。  </p>
+<p>通过Node.js将请求转发到tomcat上，实现“反向代理”，同样也有大量的Node.js库可供我们自由选择。Node.js的“单线程模型”且“非阻塞异步式I/O”特性，通过“事件循环”的方式来支撑大量的高并发请求，此外Node.js原生也提供了集群特性，可确保高可用性。<br>为了实现微服务自动化部署，我们可通过Jenkins搭建自动化部署系统，并使用Docker将服务进行容器化封装。   </p>
+<p>综上所述，微服务架构技术选型如下所示。</p>
+<p>Springboot：<a href="https://spring.io/projects/spring-boot/" target="_blank" rel="noopener">https://spring.io/projects/spring-boot/</a><br>ZooKeeper: <a href="http://zookeeper.apache.org/" target="_blank" rel="noopener">http://zookeeper.apache.org/</a><br>Node.js: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a><br>Jenkins: <a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a><br>Docker: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a></p>
+<p>下面通过一张关系图来归纳一下微服务架构技术选型，如下图所示：</p>
+<p><img src="/uploads/images/微服务架构选型.png" alt="微服务架构选型.png" title="微服务架构选型">  </p>
 <ol>
 <li>使用Jenkins部署服务</li>
 <li>使用springboot开发服务</li>
