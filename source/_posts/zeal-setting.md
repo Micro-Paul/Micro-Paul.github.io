@@ -49,17 +49,46 @@ info: initialization is finished
 接下来，我们输入 `$ gitbook serve `命令，然后在浏览器地址栏中输入` http://localhost:4000` 便可预览书籍。
 效果如下所示：
 
-![gitbook_init.png](/uploads/images/gitbook_init.png "Gitbook初始化") 
+![gitbook_init.png](/uploads/images/gitbook_init.jpg "Gitbook初始化") 
 
-运行该命令后会在书籍的文件夹中生成一个 _book 文件夹, 里面的内容即为生成的 html 文件，我们可以使用下面命令来生成网页而不开启服务器。
-```
-$ gitbook build
-```
+根据需求创建文件夹和对应的文件，举个栗子，如下格式的目录结构：
+		
+    ├── README.md
+    ├── SUMMARY.md
+    ├── part1
+    │   ├── README.md
+    │   ├── section1.1.md
+    │   └── section1.2.md
+    └── part2
+		├── README.md
+		├── section2.1.md
+		└── section2.2.md
+
+
+然后修改SUMMARY.md文件配置书的章节目录，具体如下所示：
+	# Summary
+
+	* [Introduction](README.md)
+	* [Part I](part1/README.md)
+	    * [Writing is nice](part1/section1.1.md)
+	    * [GitBook is nice](part1/section1.2.md)
+	* [Part II](part2/README.md)
+	    * [We love feedback](part2/section2.1.md)
+	    * [Better tools for authors](part2/section2.2.md)
+
+然后运行该命令`$ gitbook build`后会在书籍的文件夹中生成一个 _book 文件夹, 里面的内容即为生成的 html 文件，此时我们在使用 `$ gitbook serve `命令就可以提到如下图所示的效果图：
+
+![gitbook生成书.png](/uploads/images/gitbook生成书.png "gitbook生成书") 
+
 对于gitbook的使用就介绍到这儿，顺便给一个参考[链接](https://www.jianshu.com/p/421cc442f06c)大家可以看看gitbook的相关文档。
 
 ## 把 html 生成 Docsets
 
-有了文档对应的 html 之后，需要把 html 生成 Docsets。我使用 Node.js 生成，在 npm 上面找了一个叫 [docset-generator](https://www.npmjs.com/package/docset-generator) 的插件。新建index.js，写入以下代码
+有了文档对应的 html 之后，需要把 html 生成 Docsets。我使用 Node.js 生成，在 npm 上面找了一个叫 [docset-generator](https://www.npmjs.com/package/docset-generator) 的插件，使用如下命令进行安装在该项目中安装插件：
+```
+$ npm install docset-generator --save
+```
+安装完成后会在该目录下面生成一个 node_modules文件夹，以及文件package-lock.json ，然后将package-lock.json 拷贝一份重命名为package.json，最后在同目录下面新建index.js，写入以下代码：
 ```
 let DocSetGenerator = require("docset-generator").DocSetGenerator;
 let docSetGenerator = new DocSetGenerator({
@@ -82,7 +111,9 @@ docSetGenerator.create();
 $ node index.js
 ```
 
-即可在对应的目录下生成对应的 Docsets。接下来就是最后的一步，把这个文件夹放进 Zeal 里面。在 Zeal 里面有一个叫 docsets 的文件夹，进去之后会看到下载的 docsets 都在里面，把刚刚生成的 docsets 放进去，重启一下 Zeal 就可以看到自己的文档了。
+即可在对应的目录下生成对应的 Docsets。接下来就是最后的一步，把这个文件夹放进 Zeal 里面。在 Zeal 里面有一个叫 docsets 的文件夹，进去之后会看到下载的 docsets 都在里面，把刚刚生成的 docsets 放进去，重启一下 Zeal 就可以看到自己的文档了。如下图所示：
+
+![Zeal添加Docsets后.png](/uploads/images/Zeal添加Docsets后.png "Zeal添加Docsets后") 
 
 ## 结束语
 
