@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://micro-paul.github.io/uploads/images/gitbook_init.jpg">
 <meta property="og:image" content="https://micro-paul.github.io/uploads/images/gitbook生成书.png">
 <meta property="og:image" content="https://micro-paul.github.io/uploads/images/Zeal添加Docsets后.png">
-<meta property="og:updated_time" content="2019-05-20T08:19:10.492Z">
+<meta property="og:updated_time" content="2019-05-20T08:33:55.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zeal-setting">
 <meta name="twitter:description" content="作为一名程序开发者，翻查文档成为了每天都必须去做的事情。然而，由于使用到的知识和工具不相同，所以几乎每次都需要重新打开官网的文档进行搜索，而且不同知识和工具的文档还需要切换浏览器标签来浏览，尤其是不能连接外网或者无网的情况下想要查看一些API就变得十分不方便了。 那么有没有一个工具，即可以让我们方便查阅文档，又可以把自己日常用到的资料存起来的工具呢，下面就来介绍一下 Zeal 这一离线文档工具。M">
@@ -459,8 +459,18 @@
 <p>可以看到他会创建 README.md 和 SUMMARY.md 这两个文件，README.md 应该不陌生，就是说明文档，而 SUMMARY.md 其实就是书的章节目录，其默认内容如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Summary</span><br><span class="line"></span><br><span class="line">* [Introduction](README.md)</span><br></pre></td></tr></table></figure></p>
 <p>接下来，我们输入 <code>$ gitbook serve</code>命令，然后在浏览器地址栏中输入<code>http://localhost:4000</code> 便可预览书籍。<br>效果如下所示：</p>
 <p><img src="/uploads/images/gitbook_init.jpg" alt="gitbook_init.png" title="Gitbook初始化"> </p>
-<p>根据需求创建文件夹和对应的文件，举个栗子，如下格式的目录结构：<br>        ├── README.md<br>        ├── SUMMARY.md<br>        ├── part1<br>        │   ├── README.md<br>        │   ├── section1.1.md<br>        │   └── section1.2.md<br>        └── part2<br>            ├── README.md<br>            ├── section2.1.md<br>            └── section2.2.md</p>
-<p>然后修改SUMMARY.md文件配置书的章节目录，具体如下所示：</p>
+<p>根据需求创建文件夹和对应的文件，举个栗子，如下格式的目录结构：</p>
+<pre><code>├── README.md
+├── SUMMARY.md
+├── part1
+│   ├── README.md
+│   ├── section1.1.md
+│   └── section1.2.md
+└── part2
+    ├── README.md
+    ├── section2.1.md
+    └── section2.2.md
+</code></pre><p>然后修改SUMMARY.md文件配置书的章节目录，具体如下所示：</p>
 <pre><code># Summary
 
 * [Introduction](README.md)
