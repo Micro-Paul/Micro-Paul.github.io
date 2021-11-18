@@ -81,7 +81,7 @@ pagination_dir: page
 plugins: hexo-generate-feed
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: next
+theme: jekyll-theme-cayman
 
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
