@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Micro-Paul</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://micro-paul.github.io/"/>
+  <updated>2021-11-18T03:50:10.554Z</updated>
+  <id>https://micro-paul.github.io/</id>
+  
+  <author>
+    <name>Micro-Paul</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法：二分查找</title>
+    <link href="https://micro-paul.github.io/2021/11/18/binary-search-md/"/>
+    <id>https://micro-paul.github.io/2021/11/18/binary-search-md/</id>
+    <published>2021-11-18T03:24:07.000Z</published>
+    <updated>2021-11-18T03:50:10.554Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p><p><strong>示例 1:</strong></p><pre><code>输入: nums = [-1,0,3,5,9,12], target = 9输出: 4解释: 9 出现在 nums 中并且下标为 4</code></pre><p> <strong>示例 2:</strong></p><pre><code>输入: nums = [-1,0,3,5,9,12], target = 2输出: -1解释: 2 不存在 nums 中因此返回 -1</code></pre><p> <strong>提示:</strong></p><ol><li>你可以假设 nums 中的所有元素是不重复的。</li><li>n 将在 [1, 10000]之间。</li><li>nums 的每个元素都将在 [-9999, 9999]之间。</li></ol><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul><li>标签：二分查找</li><li>过程<ul><li>设定左右指针</li><li>找出中间位置，并判断该位置值是否等于 target</li><li>nums[mid] == target 则返回该位置下标</li><li>nums[mid] &gt; target 则右侧指针移到中间</li><li>nums[mid] &lt; target 则左侧指针移到中间</li></ul></li><li>时间复杂度：O(logN) 其中 N 是数组的长度。</li><li>空间复杂度：O(1)。</li></ul><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Solution test = <span class="keyword">new</span> Solution();</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;-<span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">12</span>&#125;;</span><br><span class="line">        System.out.println(test.search(nums, <span class="number">9</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;二分查找&quot;&gt;&lt;a href=&quot;#二分查找&quot; class=&quot;headerlink&quot; title=&quot;二分查找&quot;&gt;&lt;/a&gt;二分查找&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://micro-paul.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="二分查找" scheme="https://micro-paul.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zeal-setting</title>
+    <link href="https://micro-paul.github.io/2019/05/20/zeal-setting/"/>
+    <id>https://micro-paul.github.io/2019/05/20/zeal-setting/</id>
+    <published>2019-05-20T01:58:20.000Z</published>
+    <updated>2021-11-17T06:29:56.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一名程序开发者，翻查文档成为了每天都必须去做的事情。然而，由于使用到的知识和工具不相同，所以几乎每次都需要重新打开官网的文档进行搜索，而且不同知识和工具的文档还需要切换浏览器标签来浏览，尤其是不能连接外网或者无网的情况下想要查看一些API就变得十分不方便了。</p><p>那么有没有一个工具，即可以让我们方便查阅文档，又可以把自己日常用到的资料存起来的工具呢，下面就来介绍一下 Zeal 这一离线文档工具。Mac机对应软件为：Dash。</p><h2 id="关于zeal"><a href="#关于zeal" class="headerlink" title="关于zeal"></a>关于zeal</h2><p>对于zeal这款软件网上有很多介绍，这儿有一个不错的文章推介给大家，本文就不多加叙说。<br>参考这个<a href="https://juejin.im/post/5c6b757b6fb9a049d74840cf" target="_blank" rel="noopener">链接</a></p><h2 id="Zeal-创建自己专属的文档项目"><a href="#Zeal-创建自己专属的文档项目" class="headerlink" title="Zeal 创建自己专属的文档项目"></a>Zeal 创建自己专属的文档项目</h2><p>上边推介的文章也有对于Zeal创建自己的专属文档部分，但是苦于自己自己太浅有部分跳跃太快，没看懂，所以自己亲自把步骤分解，进行搭建。同样Zeal 官方也写了一个教我们如何去编写自己的 Docsets 的文档<a href="https://kapeli.com/docsets" target="_blank" rel="noopener">链接</a>，但是该文档写得比较简单，并且没有详细地操作指引，操作起来比较复杂。</p><blockquote><p>Zeal 的 Docsets 其实是 html 的集合，那么我们可以先用文档工具，生成一些静态的 html 文档。然后通过 Docsets 官方提供的 Docsets 生成器来把 html 生成 Docsets，这样就可以生成出属于我们自己的 Docsets 了。</p></blockquote><h2 id="合适的文档生成器"><a href="#合适的文档生成器" class="headerlink" title="合适的文档生成器"></a>合适的文档生成器</h2><p>目前各种开发语言都有文档生成器，我所知道的 Node.js 生成器就有数十个像 Gitbook、Docsify、Vuepress 等等。但是并不是每一个都适合用来制作 Docsets，举个例子：</p><blockquote><p>Docsify 是一个很棒的生成器，但是用于 Docsets 的话就会有问题。原因是因为 Docsify 是通过 js 读取 Markdown 来实现的，而 Zeal 内部是一个浏览器，并没有静态服务器，所以制作出来的 Docsets 会出现跨域的问题。</p></blockquote><p>最终我选择了使用 Gitbook 来制作 Docsets，它能生成静态的 Html 文件，并且能够通过本地双击打开，能够跟 Zeal 完美融合。</p><h2 id="编写文档"><a href="#编写文档" class="headerlink" title="编写文档"></a>编写文档</h2><p>确定了使用 Gitbook 之后，先安装 Gitbook： <code>npm install gitbook-cli -g</code><br>GitBook 准备工作做好之后，我们进入一个你要写书的目录，输入如下命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gitbook init</span><br><span class="line">warn: no summary file in this book</span><br><span class="line">info: create README.md</span><br><span class="line">info: create SUMMARY.md</span><br><span class="line">info: initialization is finished</span><br></pre></td></tr></table></figure></p><p>可以看到他会创建 README.md 和 SUMMARY.md 这两个文件，README.md 应该不陌生，就是说明文档，而 SUMMARY.md 其实就是书的章节目录，其默认内容如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Summary</span><br><span class="line"></span><br><span class="line">* [Introduction](README.md)</span><br></pre></td></tr></table></figure></p><p>接下来，我们输入 <code>$ gitbook serve</code>命令，然后在浏览器地址栏中输入<code>http://localhost:4000</code> 便可预览书籍。<br>效果如下所示：</p><p><img src="/uploads/images/gitbook_init.jpg" alt="gitbook_init.png" title="Gitbook初始化"> </p><p>根据需求创建文件夹和对应的文件，举个栗子，如下格式的目录结构：</p><pre><code>├── README.md├── SUMMARY.md├── part1│   ├── README.md│   ├── section1.1.md│   └── section1.2.md└── part2    ├── README.md    ├── section2.1.md    └── section2.2.md</code></pre><p>然后修改SUMMARY.md文件配置书的章节目录，具体如下所示：</p><pre><code># Summary* [Introduction](README.md)* [Part I](part1/README.md)    * [Writing is nice](part1/section1.1.md)    * [GitBook is nice](part1/section1.2.md)* [Part II](part2/README.md)    * [We love feedback](part2/section2.1.md)    * [Better tools for authors](part2/section2.2.md)</code></pre><p>然后运行该命令<code>$ gitbook build</code>后会在书籍的文件夹中生成一个 _book 文件夹, 里面的内容即为生成的 html 文件，此时我们在使用 <code>$ gitbook serve</code>命令就可以提到如下图所示的效果图：</p><p><img src="/uploads/images/gitbook生成书.png" alt="gitbook生成书.png" title="gitbook生成书"> </p><p>对于gitbook的使用就介绍到这儿，顺便给一个参考<a href="https://www.jianshu.com/p/421cc442f06c" target="_blank" rel="noopener">链接</a>大家可以看看gitbook的相关文档。</p><h2 id="把-html-生成-Docsets"><a href="#把-html-生成-Docsets" class="headerlink" title="把 html 生成 Docsets"></a>把 html 生成 Docsets</h2><p>有了文档对应的 html 之后，需要把 html 生成 Docsets。我使用 Node.js 生成，在 npm 上面找了一个叫 <a href="https://www.npmjs.com/package/docset-generator" target="_blank" rel="noopener">docset-generator</a> 的插件，使用如下命令进行安装在该项目中安装插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install docset-generator --save</span><br></pre></td></tr></table></figure></p><p>安装完成后会在该目录下面生成一个 node_modules文件夹，以及文件package-lock.json ，然后将package-lock.json 拷贝一份重命名为package.json，最后在同目录下面新建index.js，写入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let DocSetGenerator = require(&quot;docset-generator&quot;).DocSetGenerator;</span><br><span class="line">let docSetGenerator = new DocSetGenerator(&#123;</span><br><span class="line">  destination: &quot;./output/&quot;,</span><br><span class="line">  name: &quot;Micro-Paul&quot;,</span><br><span class="line">  documentation: &quot;./_book&quot;,</span><br><span class="line">  icon: &quot;./images/note.png&quot;,</span><br><span class="line">  entries: [ // entries 可以设置 Docsets 的分类，一般一个分类对应一个 html</span><br><span class="line">    &#123;</span><br><span class="line">      name: &quot;个人笔记&quot;,</span><br><span class="line">      type: &quot;Guide&quot;,</span><br><span class="line">      path: &quot;./index.html&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br><span class="line">docSetGenerator.create();</span><br></pre></td></tr></table></figure></p><p>通过命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node index.js</span><br></pre></td></tr></table></figure></p><p>即可在对应的目录下生成对应的 Docsets。接下来就是最后的一步，把这个文件夹放进 Zeal 里面。在 Zeal 里面有一个叫 docsets 的文件夹，进去之后会看到下载的 docsets 都在里面，把刚刚生成的 docsets 放进去，重启一下 Zeal 就可以看到自己的文档了。如下图所示：</p><p><img src="/uploads/images/Zeal添加Docsets后.png" alt="Zeal添加Docsets后.png" title="Zeal添加Docsets后"> </p><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>以上就是我在工作过程中，根据自己的开发习惯所做出来的一个小文档，如果大家有其他方便的工具，可以一起讨论一下，有任何问题欢迎骚扰~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作为一名程序开发者，翻查文档成为了每天都必须去做的事情。然而，由于使用到的知识和工具不相同，所以几乎每次都需要重新打开官网的文档进行搜索，而且不同知识和工具的文档还需要切换浏览器标签来浏览，尤其是不能连接外网或者无网的情况下想要查看一些API就变得十分不方便了。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://micro-paul.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="zeal" scheme="https://micro-paul.github.io/tags/zeal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring-boot2</title>
+    <link href="https://micro-paul.github.io/2019/03/28/spring-boot2/"/>
+    <id>https://micro-paul.github.io/2019/03/28/spring-boot2/</id>
+    <published>2019-03-28T06:04:19.000Z</published>
+    <updated>2021-11-17T06:29:56.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用springboot作为微服务开发框架，可以很好地提高开发的效率和保证微服务开发的质量，springboot中嵌入了tomcat,可直接运行一个jar包来发布微服务，此外还提供了一系列“开箱即用”的插件，可大大提高开发的效率，同时也可以去扩展更多的插件。</p><h3 id="微服务技术选型"><a href="#微服务技术选型" class="headerlink" title="微服务技术选型"></a>微服务技术选型</h3><p>在发布微服务时，可连接zookeeper来注册微服务，实现“服务注册”。实际上zookeeper中有一个名为ZNode的内存树状模型，树上的节点用于存放微服务的配置信息。使用Node.js处理浏览器的请求，在Node.js中连接zookeeper，发现服务配置，实现“服务发现”，有大量的Node.js的zookeeper客户端可以完成这个任务。  </p><p>通过Node.js将请求转发到tomcat上，实现“反向代理”，同样也有大量的Node.js库可供我们自由选择。Node.js的“单线程模型”且“非阻塞异步式I/O”特性，通过“事件循环”的方式来支撑大量的高并发请求，此外Node.js原生也提供了集群特性，可确保高可用性。<br>为了实现微服务自动化部署，我们可通过Jenkins搭建自动化部署系统，并使用Docker将服务进行容器化封装。   </p><p>综上所述，微服务架构技术选型如下所示。</p><p>Springboot：<a href="https://spring.io/projects/spring-boot/" target="_blank" rel="noopener">https://spring.io/projects/spring-boot/</a><br>ZooKeeper: <a href="http://zookeeper.apache.org/" target="_blank" rel="noopener">http://zookeeper.apache.org/</a><br>Node.js: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a><br>Jenkins: <a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a><br>Docker: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a></p><p>下面通过一张关系图来归纳一下微服务架构技术选型，如下图所示：</p><p><img src="/uploads/images/微服务架构选型.png" alt="微服务架构选型.png" title="微服务架构选型">  </p><ol><li>使用Jenkins部署服务</li><li>使用springboot开发服务</li><li>使用Docker封装服务</li><li>使用ZooKeeper注册服务</li><li>使用Node.js调用服务</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用springboot作为微服务开发框架，可以很好地提高开发的效率和保证微服务开发的质量，springboot中嵌入了tomcat,可直接运行一个jar包来发布微服务，此外还提供了一系列“开箱即用”的插件，可大大提高开发的效率，同时也可以去扩展更多的插件。&lt;/p&gt;
+&lt;h3
+      
+    
+    </summary>
+    
+      <category term="语言 - Spring" scheme="https://micro-paul.github.io/categories/%E8%AF%AD%E8%A8%80-Spring/"/>
+    
+    
+      <category term="springboot" scheme="https://micro-paul.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot微服务学习（1）</title>
+    <link href="https://micro-paul.github.io/2018/11/08/springboot1/"/>
+    <id>https://micro-paul.github.io/2018/11/08/springboot1/</id>
+    <published>2018-11-08T14:12:41.000Z</published>
+    <updated>2021-11-17T06:29:56.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>SpringBoot 作为现在非常火的技术，怎么来说都应该好好学习一下，最近在看《SpringBoot揭秘-快速构建微服务体系》这本书，首先阅读笔记走起一波！！！</p><h3 id="微服务开发规范"><a href="#微服务开发规范" class="headerlink" title="微服务开发规范"></a>微服务开发规范</h3><p>无论使用传统的应用架构，还是微服务架构，我们都需要定义良好的开发规范。经验表明，我们需要善用代码版本控制系统。就拿Git来说，它很好的支持了多分支代码版本，我们需要利用这个特性来提高开发效率，下图就是一款经典的分支管理规范。  </p><p><img src="/uploads/images/微服务开发规范.png" alt="微服务开发规范.png" title="微服务开发规范">  </p><p>最稳定的代码放在master分支上（相当于SVN的trunk分支），我们不要直接在master分支上提交代码，只能在该分支上进行代码合并操作，例如将其他分支的代码合并到master分支上。<br>我们日常开发中的代码需要从master分支上拉一条develop分支出来，该分支所有人都能访问，但一般情况下，我们也不会直接在该分支上提交代码，代码同样是从其他分支合并到develop分支上的。  </p><p>当我们需要开发某个特性时，需要从develop分支上拉出一条feature分支，例如feature-1与feature-2，在这些分支上并行地开发具体特性。  </p><p>当特性开发完毕后，我们决定发布某个版本了，此时需要从develop分支上拉出一条release分支，例如release-1.0.0，并将需要发布的特性从相关feature分支一同合并到release分支上，随后针对release分支部署测试环境，测试工程师在该分支上做功能测试，开发工程师在该分支上修改bug。待测试工程师无法找到任何bug时，我们可将该release分支部署到预发布环境中。再次验证以后，如无任何bug，此时可将release分支部署到生成环境中。待上线完成后，将release分支上的代码同时合并到develop分支与master分支上，并在master分支上打一个tag，例如v1.0.0。  </p><p>当在生产环境中发现bug时，我们需要从对应的tag上（例如v1.0.0）拉出一条hotfix分支（例如hotfix-1.0.1），并在该分支上进行bug修复。待bug完全修复后，需将hotfix分支上的代码同时合并到develop分支与master分支上。  </p><p>对于版本号我们也有要求，格式为：x.y.z，其中，x用于有重大重构时才会升级，y用于有新的特性发布时才会升级，z用于修改了某个bug后才会升级。  </p><p>针对每个服务的开发工作，我们都需要严格按照以上开发规范来执行。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;SpringBoot 作为现在非常火的技术，怎么来说都应该好好学习一下，最近在看《SpringBoot揭秘-快速构建微服务体系》这本书，首先阅读笔记走起一波！！！&lt;/p&gt;
+&lt;h3 id=&quot;微服务开发规范&quot;&gt;&lt;a href=&quot;#微服务开发规范&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="语言 - Spring" scheme="https://micro-paul.github.io/categories/%E8%AF%AD%E8%A8%80-Spring/"/>
+    
+    
+      <category term="springboot" scheme="https://micro-paul.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人Linux操作系统分区</title>
+    <link href="https://micro-paul.github.io/2018/10/24/Linux-setting/"/>
+    <id>https://micro-paul.github.io/2018/10/24/Linux-setting/</id>
+    <published>2018-10-24T02:42:47.000Z</published>
+    <updated>2021-11-17T06:29:56.153Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h2 id="个人Linux操作系统设置，8G的内存，500G的硬盘分区为例"><a href="#个人Linux操作系统设置，8G的内存，500G的硬盘分区为例" class="headerlink" title="个人Linux操作系统设置，8G的内存，500G的硬盘分区为例"></a>个人Linux操作系统设置，8G的内存，500G的硬盘分区为例</h2><h2 id="Linux分区"><a href="#Linux分区" class="headerlink" title="Linux分区"></a>Linux分区</h2><h3 id="Linux分区介绍"><a href="#Linux分区介绍" class="headerlink" title="Linux分区介绍"></a>Linux分区介绍</h3><pre><code>/boot ：用来存放与 Linux 系统启动有关的程序，比如启动引导装载程序等，建议大小为 100MB 。//200M/swap ：实现虚拟内存，建议大小是物理内存的 1~2 倍。//3G/usr ：用来存放 Linux 系统中的应用程序，其相关数据较多，建议大于 3GB 以上。 /var ：用来存放 Linux 系统中经常变化的数据以及日志文件，建议大于 1GB 以上。 /home ：存放普通用户的数据，是普通用户的宿主目录，建议大小为剩下的空间。 / ： Linux 系统的根目录，所有的目录都挂在这个目录下面，建议大小为 5GB 以上。 /tmp ：将临时盘在独立的分区，可避免在文件系统被塞满时影响到系统的稳定性。建议大小为 500MB 以上。 //</code></pre><h3 id="个人电脑分区详情"><a href="#个人电脑分区详情" class="headerlink" title="个人电脑分区详情"></a>个人电脑分区详情</h3><p>常见挂载点的情况说明：一般来说，在linux系统中都有最少两个挂载点，分别是/ (根目录)及 swap（交换分区），其中，/ 是必须的。详细内容见下文：</p><p>安装系统时选择creat custom layout 自定义分区<br>建议挂载的几大目录：</p><pre><code>/home 100G/opt 100G/usr/local 69G/data 80G/var 8G/boot 800M/ 100Gswap 8G</code></pre><hr><p>这就是我的电脑安装Linux（centos）系统时候得详细分区。大家也可以按照自己的实际需求分区，感谢！！！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h2 id=&quot;个人Linux操作系统设置，8G的内存，500G的硬盘分区为例&quot;&gt;&lt;a href=&quot;#个人Linux操作系统设置，8G的内存，500G的硬盘分区为例&quot; class=&quot;headerlink&quot; title=&quot;个人Linux操作系统设置，8G的内存，500G的
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://micro-paul.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Linux" scheme="https://micro-paul.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人博客搭建（hexo+GitHub）</title>
+    <link href="https://micro-paul.github.io/2018/10/19/hexo-setting/"/>
+    <id>https://micro-paul.github.io/2018/10/19/hexo-setting/</id>
+    <published>2018-10-19T13:47:44.000Z</published>
+    <updated>2021-11-17T06:29:56.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用hexo+GitHub搭建个人博客的时候可以参考这个<a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">链接</a>，和这个<a href="https://asdfv1929.github.io/categories/GitBlog/" target="_blank" rel="noopener">链接</a>在这篇文章中作者详细介绍了搭建博客的详细过程，我写这片博客主要是以后迁移方便，以及还有一些需要设置的地方。下面详细介绍：</p><h2 id="本地环境配置"><a href="#本地环境配置" class="headerlink" title="本地环境配置"></a>本地环境配置</h2><h3 id="需要软件"><a href="#需要软件" class="headerlink" title="需要软件"></a>需要软件</h3><p>搭建博客首先需要基本的环境与软件，分别是:</p><blockquote><ol><li>Git</li><li>Node.js</li><li>hexo</li></ol></blockquote><p>网上关于这三种工具的安装有很多例子，并且在上面提到的连接里面也有介绍，本文就不多加叙说。</p><p>参考这个<a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">链接</a></p><h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h3 id="Next主题配置"><a href="#Next主题配置" class="headerlink" title="Next主题配置"></a>Next主题配置</h3><p>hexo启动以后默认的主题是landscape，我这边选用Next主题，主要是因为这个主题看着美观大方。大部分的配置在参考文件中已经说明了，我这里只说一些需要注意的地方，以及高级的一些配置。</p><h4 id="图片的存放于使用"><a href="#图片的存放于使用" class="headerlink" title="图片的存放于使用"></a>图片的存放于使用</h4><p>图片的使用只在基本上在三个地方使用，a.头像，b.支付图片，c.文章图片。</p><p>因为主题的配置文件_config.yml是在注意文件夹里面的一级目录，与source文件夹属于同一级别。但是，在配置图片的时候，图片的配置路径与source里面的目录是一致的</p><p>将头像放置主题目录下的 source/uploads/ （新建 uploads 目录若不存在） 配置为：<br><code>avatar: /uploads/avatar.png</code></p><p>或者 放置在 source/images/ 目录下配置为：<br><code>avatar: /images/avatar.png</code></p><h4 id="头像设置为圆形，且可以旋转"><a href="#头像设置为圆形，且可以旋转" class="headerlink" title="头像设置为圆形，且可以旋转"></a>头像设置为圆形，且可以旋转</h4><p>设置头像:<br>打开<code>themes/next/_config.yml</code>找到<code>avatar: /uploads/images/avatar.jpg;</code>其中images文件在<code>themes/nextsource/uploads</code>中,将你的头像图片放到images中,一般默认命名为avatar,记得改下后缀就可以了。</p><p>设置旋转效果:<br>打开<code>themes\next\source\css\_common\components\sidebar\sidebar-author.styl,</code><br>添加以下注释代码:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转时间 */</span></span><br><span class="line">  <span class="attribute">-webkit-transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="为首页文章添加阴影边框效果"><a href="#为首页文章添加阴影边框效果" class="headerlink" title="为首页文章添加阴影边框效果"></a>为首页文章添加阴影边框效果</h4><p>打开<code>next\source\css\_custom\custom.styl</code>文件,添加以下代码:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p><h4 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h4><p>效果如下:</p><p><img src="/uploads/images/0.png" alt="0.png"></p><p>实现方法如下:</p><ol><li><p>在<code>\themes\next\layout\_macro</code>下新建 <code>passage-end-tag.swig</code> 文件,并添加以下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">&lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span><br><span class="line">-------------本文结束&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-heart"</span>&gt;&lt;/i&gt;感谢阅读-------------</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&#123;% endif %&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure></li><li><p>打开<code>\themes\next\layout\_macro\post.swig</code>文件，在post-body 之后， post-footer （post-footer之前有两个DIV）之前添加如下代码：</p> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">    &#123;% include <span class="string">'passage-end-tag.swig'</span> %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure><p><img src="/uploads/images/1.png" alt="1.png"></p></li><li><p>打开主题配置文件_config.yml在末尾添加以下字段：</p><pre><code>passage_end_tag:  enabled: true</code></pre></li></ol><p>到此,就大功告成了.</p><h4 id="实现文章字数统计和阅读预估时间"><a href="#实现文章字数统计和阅读预估时间" class="headerlink" title="实现文章字数统计和阅读预估时间"></a>实现文章字数统计和阅读预估时间</h4><p>效果如下:</p><p><img src="/uploads/images/2.png" alt="2.png"></p><p>实现方法如下:</p><ol><li><p>在站点根目录下使用GitBash命令安装 hexo-wordcount插件:</p><blockquote><p>$ npm install hexo-wordcount –save</p></blockquote></li><li><p>在全局配置文件_config.yml中激活插件:</p> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ymbols_count_time</span>:</span><br><span class="line">    <span class="selector-tag">symbols</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">time</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">total_symbols</span>: <span class="selector-tag">true</span></span><br><span class="line">    <span class="selector-tag">total_time</span>: <span class="selector-tag">true</span></span><br></pre></td></tr></table></figure></li><li><p>在主题的配置文件_config.yml中进行如下配置:</p> <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ymbols_count_time</span>:  </span><br><span class="line"><span class="selector-tag">time_minutes</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">separated_meta</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">item_text_post</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">item_text_total</span>: <span class="selector-tag">true</span></span><br><span class="line"><span class="selector-tag">awl</span>: 4</span><br><span class="line"><span class="selector-tag">wpm</span>: 275</span><br></pre></td></tr></table></figure></li></ol><p>到此,我们就实现了文章字数统计和预估时间的显示功能</p><h4 id="集成gitalk评论系统"><a href="#集成gitalk评论系统" class="headerlink" title="集成gitalk评论系统"></a>集成gitalk评论系统</h4><p>集成gitalk系统参考这个<a href="https://asdfv1929.github.io/2018/01/20/gitalk/" target="_blank" rel="noopener">链接</a></p><p>参考这个<a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">链接</a></p><h2 id="hexo-配置与使用"><a href="#hexo-配置与使用" class="headerlink" title="hexo 配置与使用"></a>hexo 配置与使用</h2><h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>hexo主题配置好以后，就剩下发表文章了。打开命令行，定位到 xxx.github.io 目录下：</p><ol><li>新建普通页面命名为hexo-setting<blockquote><p>$ hexo new hexo-setting</p></blockquote></li></ol><p>这时在_post文件夹下生成一个hexo-setting.md文件</p><ol start="2"><li>新建文件夹，文件夹命名为tags<blockquote><p>$ hexo new page “tags”</p></blockquote></li></ol><p>这时在source目录下生成一个tags文件夹，且默认在此文件夹下生成 index.md 文件</p><h3 id="基本配置简析"><a href="#基本配置简析" class="headerlink" title="基本配置简析"></a>基本配置简析</h3><p>hexo 默认有categories、tags等目录，但是在source目录下没有此文件夹，所以用使用categories时，要先使用`hexo new page “categories” 命令建立此文件夹，然后在默认的此文件夹下的index.md文件中添加一下内容：</p><pre><code>title: 所有分类date: 2018-10-22 17:16:58type: &quot;categories&quot; # 将页面的类型设置为 categoriescomments: false # 如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，设置为 false</code></pre><p>同理于tags,只需要把categories换成tags就可。如果想在添加其他文件夹或者菜单的话，需要现在配置文件中配置菜单，然后建立文件夹，再去操作。</p><p>以上就是Hexo + Github 搭建博客的基本操作和一些有趣的配置，有问题欢迎评论哦！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在使用hexo+GitHub搭建个人博客的时候可以参考这个&lt;a href=&quot;https://www.jianshu.com/p/380290deb8f0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;，和这个&lt;a href=&quot;https://a
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://micro-paul.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="hexo" scheme="https://micro-paul.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
