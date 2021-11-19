@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查找第一个错误版本]]></title>
+    <url>%2F2021%2F11%2F19%2Ffirst-version%2F</url>
+    <content type="text"><![CDATA[第一个错误的版本题目链接https://leetcode-cn.com/problems/first-bad-version/ 题目描述你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。 假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。 示例 1: 输入：n = 5, bad = 4 输出：4 解释： 调用 isBadVersion(3) -&gt; false 调用 isBadVersion(5) -&gt; true 调用 isBadVersion(4) -&gt; true 所以，4 是第一个错误的版本。 示例 2: 输入：n = 1, bad = 1 输出：1 提示： 1 &lt;= bad &lt;= n &lt;= 231 - 1 解题思路因为题目要求尽量减少调用检查接口的次数，所以不能对每个版本都调用检查接口，而是应该将调用检查接口的次数降到最低。 注意到一个性质：当一个版本为正确版本，则该版本之前的所有版本均为正确版本；当一个版本为错误版本，则该版本之后的所有版本均为错误版本。我们可以利用这个性质进行二分查找。 具体地，将左右边界分别初始化为 1 和 n，其中 n 是给定的版本数量。设定左右边界之后，每次我们都依据左右边界找到其中间的版本，检查其是否为正确版本。如果该版本为正确版本，那么第一个错误的版本必然位于该版本的右侧，我们缩紧左边界；否则第一个错误的版本必然位于该版本及该版本的左侧，我们缩紧右边界。 这样我们每判断一次都可以缩紧一次边界，而每次缩紧时两边界距离将变为原来的一半，因此我们至多只需要缩紧 O(logn) 次。 代码123456789101112131415161718/* The isBadVersion API is defined in the parent class VersionControl. boolean isBadVersion(int version); */public class Solution extends VersionControl &#123; public int firstBadVersion(int n) &#123; int left = 1, right = n; while (left &lt; right) &#123; // 循环直至区间左右端点相同 int mid = left + (right - left) / 2; // 防止计算时溢出 if (isBadVersion(mid)) &#123; right = mid; // 答案在区间 [left, mid] 中 &#125; else &#123; left = mid + 1; // 答案在区间 [mid+1, right] 中 &#125; &#125; // 此时有 left == right，区间缩为一个点，即为答案 return left; &#125;&#125; 复杂度分析 时间复杂度：O(\log n)O(logn)，其中 nn 是给定版本的数量。 空间复杂度：O(1)O(1)。我们只需要常数的空间保存若干变量。]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[算法：二分查找]]></title>
     <url>%2F2021%2F11%2F18%2Fbinary-search-md%2F</url>
     <content type="text"><![CDATA[二分查找题目链接https://leetcode-cn.com/problems/binary-search/ 题目描述给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。 示例 1: 输入: nums = [-1,0,3,5,9,12], target = 9 输出: 4 解释: 9 出现在 nums 中并且下标为 4 示例 2: 输入: nums = [-1,0,3,5,9,12], target = 2 输出: -1 解释: 2 不存在 nums 中因此返回 -1 提示: 你可以假设 nums 中的所有元素是不重复的。 n 将在 [1, 10000]之间。 nums 的每个元素都将在 [-9999, 9999]之间。 解题思路 标签：二分查找 过程 设定左右指针 找出中间位置，并判断该位置值是否等于 target nums[mid] == target 则返回该位置下标 nums[mid] &gt; target 则右侧指针移到中间 nums[mid] &lt; target 则左侧指针移到中间 时间复杂度：O(logN) 其中 N 是数组的长度。 空间复杂度：O(1)。 基于上述事实，可以在有序数组中使用二分查找寻找目标值。 二分查找的做法是，定义查找的范围 [left,right] ，初始查找范围是整个数组。每次取查找范围的中点 mid，比较 nums[mid] 和 target 的大小，如果相等则 mid 即为要寻找的下标，如果不相等则根据 nums[mid] 和 target 的大小关系将查找范围缩小一半。 由于每次查找都会将查找范围缩小一半，因此二分查找的时间复杂度是 O(logn)，其中 n 是数组的长度。 二分查找的条件是查找范围不为空，即 left≤right。如果 target 在数组中，二分查找可以保证找到 target，返回 target 在数组中的下标。如果 target 不在数组中，则当 left&gt;right 时结束查找，返回 -1。 代码123456789101112131415161718192021222324public class Solution &#123; public static void main(String[] args) &#123; Solution test = new Solution(); int[] nums = &#123;-1, 0, 3, 5, 9, 12&#125;; System.out.println(test.search(nums, 9)); &#125; public int search(int[] nums, int target) &#123; int left = 0; int right = nums.length - 1; while (left &lt;= right) &#123; int mid = (left + right) / 2; if (nums[mid] == target) &#123; return mid; &#125; else if (nums[mid] &lt; target) &#123; left = mid + 1; &#125; else &#123; right = mid - 1; &#125; &#125; return -1; &#125;&#125;]]></content>
