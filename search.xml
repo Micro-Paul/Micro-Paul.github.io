@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[算法：二分查找]]></title>
+    <url>%2F2021%2F11%2F26%2Fsearch-position%2F</url>
+    <content type="text"><![CDATA[搜索插入位置题目链接https://leetcode-cn.com/problems/search-insert-position/ 题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 请必须使用时间复杂度为 O(log n) 的算法。 示例 1: 输入: nums = [1,3,5,6], target = 5 输出: 2 示例 2: 输入: nums = [1,3,5,6], target = 2 输出: 1 示例 3: 输入: nums = [1,3,5,6], target = 7 输出: 4 示例 4: 输入: nums = [1,3,5,6], target = 0 输出: 0 示例 5: 输入: nums = [1], target = 0 输出: 0 提示： 1 &lt;= nums.length &lt;= 104 -104 &lt;= nums[i] &lt;= 104 nums 为无重复元素的升序排列数组 -104 &lt;= target &lt;= 104 解题思路 标签：二分查找 如果该题目暴力解决的话需要 O(n) 的时间复杂度，但是如果二分的话则可以降低到 O(logn) 的时间复杂度 整体思路和普通的二分查找几乎没有区别，先设定左侧下标 left 和右侧下标 right，再计算中间下标 mid 每次根据 nums[mid] 和 target 之间的大小进行判断，相等则直接返回下标，nums[mid] &lt; target 则 left 右移，nums[mid] &gt; target 则 right 左移 查找结束如果没有相等值则返回 left，该值为插入位置 时间复杂度：O(logn) 代码 1234567891011121314151617public class Solution &#123; public int searchInsert(int[] nums, int target) &#123; int left = 0, right = nums.length -1; while (left &lt;= right) &#123; int mid = left + (right -left) / 2; if (nums[mid] == target) &#123; return mid; &#125; else if (nums[mid] &lt; target)&#123; left = mid + 1; &#125; else &#123; right = right -1; &#125; &#125; return left; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[查找第一个错误版本]]></title>
     <url>%2F2021%2F11%2F19%2Ffirst-version%2F</url>
     <content type="text"><![CDATA[第一个错误的版本题目链接https://leetcode-cn.com/problems/first-bad-version/ 题目描述你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。 假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。 你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。 示例 1: 输入：n = 5, bad = 4 输出：4 解释： 调用 isBadVersion(3) -&gt; false 调用 isBadVersion(5) -&gt; true 调用 isBadVersion(4) -&gt; true 所以，4 是第一个错误的版本。 示例 2: 输入：n = 1, bad = 1 输出：1 提示： 1 &lt;= bad &lt;= n &lt;= 231 - 1 解题思路因为题目要求尽量减少调用检查接口的次数，所以不能对每个版本都调用检查接口，而是应该将调用检查接口的次数降到最低。 注意到一个性质：当一个版本为正确版本，则该版本之前的所有版本均为正确版本；当一个版本为错误版本，则该版本之后的所有版本均为错误版本。我们可以利用这个性质进行二分查找。 具体地，将左右边界分别初始化为 1 和 n，其中 n 是给定的版本数量。设定左右边界之后，每次我们都依据左右边界找到其中间的版本，检查其是否为正确版本。如果该版本为正确版本，那么第一个错误的版本必然位于该版本的右侧，我们缩紧左边界；否则第一个错误的版本必然位于该版本及该版本的左侧，我们缩紧右边界。 这样我们每判断一次都可以缩紧一次边界，而每次缩紧时两边界距离将变为原来的一半，因此我们至多只需要缩紧 O(logn) 次。 代码123456789101112131415161718/* The isBadVersion API is defined in the parent class VersionControl. boolean isBadVersion(int version); */public class Solution extends VersionControl &#123; public int firstBadVersion(int n) &#123; int left = 1, right = n; while (left &lt; right) &#123; // 循环直至区间左右端点相同 int mid = left + (right - left) / 2; // 防止计算时溢出 if (isBadVersion(mid)) &#123; right = mid; // 答案在区间 [left, mid] 中 &#125; else &#123; left = mid + 1; // 答案在区间 [mid+1, right] 中 &#125; &#125; // 此时有 left == right，区间缩为一个点，即为答案 return left; &#125;&#125; 复杂度分析 时间复杂度：O(\log n)O(logn)，其中 nn 是给定版本的数量。 空间复杂度：O(1)O(1)。我们只需要常数的空间保存若干变量。]]></content>

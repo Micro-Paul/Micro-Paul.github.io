@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://micro-paul.github.io/"/>
-  <updated>2021-11-19T08:09:04.557Z</updated>
+  <updated>2021-11-26T02:56:08.650Z</updated>
   <id>https://micro-paul.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法：二分查找</title>
+    <link href="https://micro-paul.github.io/2021/11/26/search-position/"/>
+    <id>https://micro-paul.github.io/2021/11/26/search-position/</id>
+    <published>2021-11-26T02:55:12.000Z</published>
+    <updated>2021-11-26T02:56:08.650Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搜索插入位置"><a href="#搜索插入位置" class="headerlink" title="搜索插入位置"></a>搜索插入位置</h1><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode-cn.com/problems/search-insert-position/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/search-insert-position/</a></p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p><p>请必须使用时间复杂度为 O(log n) 的算法。</p><p> <strong>示例 1:</strong></p><pre><code>输入: nums = [1,3,5,6], target = 5输出: 2</code></pre><p> <strong>示例 2:</strong></p><pre><code>输入: nums = [1,3,5,6], target = 2输出: 1</code></pre><p> <strong>示例 3:</strong></p><pre><code>输入: nums = [1,3,5,6], target = 7输出: 4</code></pre><p> <strong>示例 4:</strong></p><pre><code>输入: nums = [1,3,5,6], target = 0输出: 0</code></pre><p> <strong>示例 5:</strong></p><pre><code>输入: nums = [1], target = 0输出: 0</code></pre><p> <strong>提示：</strong></p><ul><li>1 &lt;= nums.length &lt;= 104</li><li>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></li><li>nums 为无重复元素的升序排列数组</li><li>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></li></ul><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul><li><p>标签：二分查找</p></li><li><p>如果该题目暴力解决的话需要 O(n) 的时间复杂度，但是如果二分的话则可以降低到 O(logn) 的时间复杂度</p></li><li><p>整体思路和普通的二分查找几乎没有区别，先设定左侧下标 left 和右侧下标 right，再计算中间下标 mid</p></li><li><p>每次根据 nums[mid] 和 target 之间的大小进行判断，相等则直接返回下标，nums[mid] &lt; target 则 left 右移，nums[mid] &gt; target 则 right 左移</p></li><li><p>查找结束如果没有相等值则返回 left，该值为插入位置</p></li><li><p>时间复杂度：O(logn)</p></li></ul><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length -<span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">             <span class="keyword">int</span> mid = left + (right -left) / <span class="number">2</span>;</span><br><span class="line">             <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                 <span class="keyword">return</span> mid;</span><br><span class="line">             &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target)&#123;</span><br><span class="line">                 left = mid + <span class="number">1</span>;</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 right = right -<span class="number">1</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;搜索插入位置&quot;&gt;&lt;a href=&quot;#搜索插入位置&quot; class=&quot;headerlink&quot; title=&quot;搜索插入位置&quot;&gt;&lt;/a&gt;搜索插入位置&lt;/h1&gt;&lt;h2 id=&quot;题目链接&quot;&gt;&lt;a href=&quot;#题目链接&quot; class=&quot;headerlink&quot; title=&quot;题
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://micro-paul.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="二分查找" scheme="https://micro-paul.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>查找第一个错误版本</title>
