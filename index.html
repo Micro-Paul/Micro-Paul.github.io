@@ -319,6 +319,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://micro-paul.github.io/2022/01/26/annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Micro-Paul">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Micro-Paul">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/26/annotation/" itemprop="url">annotation 不常用注解学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-26T10:27:00+08:00">
+                2022-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  544
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Retention-注解的作用"><a href="#Retention-注解的作用" class="headerlink" title="@Retention 注解的作用"></a>@Retention 注解的作用</h1><p>注解@Retention可以用来修饰注解，是注解的注解，称为元注解。<br>Retention注解有一个属性value，是RetentionPolicy类型的，Enum RetentionPolicy是一个枚举类型，这个枚举决定了Retention注解应该如何去保持，也可理解为Rentention 搭配 RententionPolicy使用。RetentionPolicy有3个值：CLASS  RUNTIME   SOURCE</p>
+<h2 id="按生命周期来划分可分为3类："><a href="#按生命周期来划分可分为3类：" class="headerlink" title="按生命周期来划分可分为3类："></a>按生命周期来划分可分为3类：</h2><ol>
+<li>RetentionPolicy.SOURCE：注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；</li>
+<li>RetentionPolicy.CLASS：注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；</li>
+<li>RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；</li>
+</ol>
+<p>这3个生命周期分别对应于：Java源文件(.java文件) —&gt; .class文件 —&gt; 内存中的字节码。那怎么来选择合适的注解生命周期呢？</p>
+<h2 id="注解的作用周期"><a href="#注解的作用周期" class="headerlink" title="注解的作用周期"></a>注解的作用周期</h2><p>首先要明确生命周期长度 SOURCE &lt; CLASS &lt; RUNTIME ，所以前者能作用的地方后者一定也能作用。一般如果需要在运行时去动态获取注解信息，那只能用 RUNTIME 注解，比如@Deprecated使用RUNTIME注解；如果要在编译时进行一些预处理操作，比如生成一些辅助代码（如 ButterKnife），就用 CLASS注解；如果只是做一些检查性的操作，比如 @Override 和 @SuppressWarnings，使用SOURCE 注解。</p>
+<h2 id="注解的作用方式"><a href="#注解的作用方式" class="headerlink" title="注解的作用方式"></a>注解的作用方式</h2><p>注解@Override用在方法上，当我们想重写一个方法时，在方法上加@Override，当我们方法的名字出错时，编译器就会报错<br>注解@Deprecated，用来表示某个类或属性或方法已经过时，不想别人再用时，在属性和方法上用@Deprecated修饰<br>注解@SuppressWarnings用来压制程序中出来的警告，比如在没有用泛型或是方法已经过时的时候</p>
+<h1 id="Target-注解的作用目标"><a href="#Target-注解的作用目标" class="headerlink" title="@Target:注解的作用目标"></a>@Target:注解的作用目标</h1><pre><code>@Target(ElementType.TYPE)——接口、类、枚举、注解
+@Target(ElementType.FIELD)——字段、枚举的常量
+@Target(ElementType.METHOD)——方法
+@Target(ElementType.PARAMETER)——方法参数
+@Target(ElementType.CONSTRUCTOR) ——构造函数
+@Target(ElementType.LOCAL_VARIABLE)——局部变量
+@Target(ElementType.ANNOTATION_TYPE)——注解
+@Target(ElementType.PACKAGE)——包
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+<div>
+      
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://micro-paul.github.io/2021/12/01/ordinal-square/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2283,7 +2478,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2294,7 +2489,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2305,7 +2500,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2379,7 +2574,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <!--<i class="fa fa-user"></i>-->
     <i class="fa fa-heart"></i>
@@ -2394,7 +2589,7 @@ comments: false # 如果有启用多说 或者 Disqus 评论，默认页面也�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7k</span>
+    <span title="Site words total count">7.5k</span>
   
 </div>
 
